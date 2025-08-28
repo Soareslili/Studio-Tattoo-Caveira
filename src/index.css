@@ -20,3 +20,8 @@
     --font-sans: "Playwrite US Modern", cursive;
     --font-serif: "Plus Jakarta Sans", sans-serif;
 }
+
+.outlined-text {
+  color: transparent;
+  -webkit-text-stroke: 2px white; /* contorno branco */
+}
