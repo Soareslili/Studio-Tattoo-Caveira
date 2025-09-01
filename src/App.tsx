@@ -8,6 +8,7 @@ import "aos/dist/aos.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Process from "./components/Process";
 
 export default function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function App() {
       <Header />
       <Hero />
       <About />
+      <Process />
     </>
   );
 }
