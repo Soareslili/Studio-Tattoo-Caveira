@@ -44,7 +44,7 @@ export default function Process() {
   );
 
   return (
-    <section className="py-20 bg-black text-white">
+    <section id="processes" className="py-20 bg-black text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl mt-20 font-extrabold tracking-tight">
@@ -88,7 +88,7 @@ export default function Process() {
               </div>
             </div>
 
-            <div className="">
+            <div>
               <h4 className="text-sm font-bold text-gray-700">Principais Cuidados:</h4>
               <ul className="mt-3 space-y-3 text-sm text-gray-700">
                 <li className="flex items-start gap-3"><Dot /> <span>Mantenha a área sempre limpa e seca</span></li>
