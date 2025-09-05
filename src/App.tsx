@@ -11,6 +11,9 @@ import About from "./components/About";
 import Process from "./components/Process";
 import Gallery from "./components/Gallery";
 import FAQSection from "./components/FAQSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+
 
 export default function App() {
   useEffect(() => {
@@ -32,6 +35,8 @@ export default function App() {
       <Process />
       <Gallery/>
       <FAQSection/>
+      <ContactSection/>
+      <Footer/>
     </>
   );
 }

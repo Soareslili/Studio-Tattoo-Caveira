@@ -64,7 +64,7 @@ export default function FAQSection({
 
                     <div className="w-20 h-1 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FFD700] mx-auto mt-6" />
 
-                    <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto">
+                    <p className="mt-4 text-lg font-serif text-gray-300 max-w-3xl mx-auto">
                         {subtitle}
                     </p>
                 </div>
