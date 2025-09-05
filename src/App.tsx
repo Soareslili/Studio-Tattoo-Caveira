@@ -10,6 +10,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Process from "./components/Process";
 import Gallery from "./components/Gallery";
+import FAQSection from "./components/FAQSection";
 
 export default function App() {
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function App() {
       <About />
       <Process />
       <Gallery/>
+      <FAQSection/>
     </>
   );
 }
