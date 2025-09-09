@@ -1,6 +1,3 @@
-
-"use client";
-
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -14,7 +11,6 @@ import FAQSection from "./components/FAQSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
-
 export default function App() {
   useEffect(() => {
     AOS.init({
@@ -23,21 +19,22 @@ export default function App() {
       once: true,
       offset: 60,
     });
-    // opcional: garante cálculo correto quando imagens carregam
+    // opcional: recalcula quando imagens carregam (evita timing errado do offset)
     AOS.refresh();
   }, []);
 
   return (
     <>
       <Header />
-      <Hero />
-      <About />
-      <Process />
-      <Gallery/>
-      <FAQSection/>
-      <ContactSection/>
-      <Footer/>
+      <main>
+        <Hero />
+        <About />
+        <Process />
+        <Gallery />
+        <FAQSection />
+        <ContactSection />
+      </main>
+      <Footer />
     </>
   );
 }
-

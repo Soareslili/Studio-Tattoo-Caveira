@@ -1,47 +1,60 @@
 "use client";
-import Aos from "aos";
-import "aos/dist/aos.css";
+
 import { useEffect } from "react";
+import type React from "react";
+import "aos/dist/aos.css";
+
+type Step = {
+  number: string; // "01", "02", ...
+  title: string;
+  desc: string;
+};
+
+const STEPS: Step[] = [
+  { number: "01", title: "Agendamento", desc: "Contato via WhatsApp para agendar consulta inicial e discutir sua ideia." },
+  { number: "02", title: "Briefing", desc: "Conversa detalhada sobre o design, tamanho, localização e estilo desejado." },
+  { number: "03", title: "Criação do Traço", desc: "Desenvolvimento do desenho personalizado baseado em suas preferências." },
+  { number: "04", title: "Sessão de Tatuagem", desc: "Execução da tatuagem com técnica profissional e máxima higiene." },
+  { number: "05", title: "Aftercare", desc: "Orientações completas de cuidados e acompanhamento da cicatrização." },
+];
+
+const Dot = () => (
+  <span className="mt-2 h-2 w-2 rounded-full bg-red-500 inline-block flex-shrink-0" />
+);
+
+// Aceita data-* e className extras
+type StepCardProps = Step & React.HTMLAttributes<HTMLDivElement>;
+const StepCard: React.FC<StepCardProps> = ({ number, title, desc, className = "", ...rest }) => (
+  <div
+    {...rest}
+    className={`h-full rounded-2xl bg-white text-gray-900 p-5 shadow-lg ring-1 ring-black/5
+                transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl ${className}`}
+  >
+    <div
+      className="text-2xl font-extrabold tracking-tight text-transparent bg-clip-text
+                 bg-gradient-to-r from-amber-300 via-orange-500 to-amber-300"
+    >
+      {number}
+    </div>
+    <h3 className="mt-1 text-lg font-extrabold">
+      {title}
+      <span className="block w-12 h-1 rounded-full mt-1 bg-gradient-to-r from-amber-300 via-orange-500 to-amber-300" />
+    </h3>
+    <p className="mt-3 text-sm text-gray-600 leading-relaxed">{desc}</p>
+  </div>
+);
 
 export default function Process() {
   useEffect(() => {
-    Aos.init({
-      duration: 800,   // velocidade da animação
-      once: true,      // anima só na primeira vez
-      easing: "ease-out-cubic",
+    // importa AOS somente no cliente (evita problemas no build/SSR)
+    import("aos").then((AOS) => {
+      AOS.init({
+        duration: 800,       // velocidade da animação
+        once: true,          // anima só na primeira vez
+        easing: "ease-out-cubic",
+      });
     });
   }, []);
-
-  const STEPS = [
-    { number: "01", title: "Agendamento", desc: "Contato via WhatsApp para agendar consulta inicial e discutir sua ideia." },
-    { number: "02", title: "Briefing", desc: "Conversa detalhada sobre o design, tamanho, localização e estilo desejado." },
-    { number: "03", title: "Criação do Traço", desc: "Desenvolvimento do desenho personalizado baseado em suas preferências." },
-    { number: "04", title: "Sessão de Tatuagem", desc: "Execução da tatuagem com técnica profissional e máxima higiene." },
-    { number: "05", title: "Aftercare", desc: "Orientações completas de cuidados e acompanhamento da cicatrização." },
-  ];
-
-  const Dot = () => (
-    <span className="mt-2 h-2 w-2 rounded-full bg-red-500 inline-block flex-shrink-0" />
-  );
-
-  // aceita ...rest para receber data-aos, className extra, etc.
-  const StepCard = ({ number, title, desc, ...rest }) => (
-    <div
-      {...rest}
-      className="h-full rounded-2xl bg-white text-gray-900 p-5 shadow-lg ring-1 ring-black/5
-                 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl"
-    >
-      <div className="text-2xl font-extrabold tracking-tight text-transparent bg-clip-text
-                      bg-gradient-to-r from-amber-300 via-orange-500 to-amber-300">
-        {number}
-      </div>
-      <h3 className="mt-1 text-lg font-extrabold">
-        {title}
-        <span className="block w-12 h-1 rounded-full mt-1 bg-gradient-to-r from-amber-300 via-orange-500 to-amber-300" />
-      </h3>
-      <p className="mt-3 text-sm text-gray-600 leading-relaxed">{desc}</p>
-    </div>
-  );
 
   return (
     <section id="processes" className="py-20 bg-black text-white">
