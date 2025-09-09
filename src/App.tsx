@@ -26,14 +26,12 @@ export default function App() {
   return (
     <>
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Process />
-        <Gallery />
-        <FAQSection />
-        <ContactSection />
-      </main>
+      <Hero />
+      <About />
+      <Process />
+      <Gallery />
+      <FAQSection />
+      <ContactSection />
       <Footer />
     </>
   );
